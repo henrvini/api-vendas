@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import express, { NextFunction, Request, Response, response } from "express";
 import cors from "cors";
 
