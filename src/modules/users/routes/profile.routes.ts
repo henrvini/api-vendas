@@ -10,11 +10,10 @@ profileRouter.use(isAuthenticated);
 
 profileRouter.get("/", profileController.show);
 
-profileRouter.post(
+profileRouter.put(
   "/",
   celebrate({
     [Segments.BODY]: {
-      user_id: Joi.string().uuid().required(),
       name: Joi.string().required(),
       email: Joi.string().email().required(),
       password: Joi.string().optional(),
