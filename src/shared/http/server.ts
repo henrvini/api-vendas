@@ -1,4 +1,5 @@
 import "reflect-metadata";
+import "dotenv/config";
 import express, { NextFunction, Request, Response } from "express";
 import "express-async-errors";
 import cors from "cors";
@@ -9,7 +10,7 @@ import AppError from "@shared/errors/AppError";
 import "@shared/typeorm";
 import uploadConfig from "@config/upload";
 
-const PORT = process.env.PORT || 3333;
+const PORT = process.env.PORT;
 const app = express();
 
 app.use(pagination);
