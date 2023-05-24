@@ -1,8 +1,9 @@
 import "reflect-metadata";
-import express, { NextFunction, Request, Response, response } from "express";
+import express, { NextFunction, Request, Response } from "express";
 import "express-async-errors";
 import cors from "cors";
 import { errors } from "celebrate";
+import { pagination } from "typeorm-pagination";
 import routes from "./routes/index.routes";
 import AppError from "@shared/errors/AppError";
 import "@shared/typeorm";
@@ -11,6 +12,7 @@ import uploadConfig from "@config/upload";
 const PORT = process.env.PORT || 3333;
 const app = express();
 
+app.use(pagination);
 app.use(cors());
 app.use(express.json());
 app.use("/files", express.static(uploadConfig.directory));
